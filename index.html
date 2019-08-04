@@ -48,8 +48,82 @@
           </div>
      </nav>
 
+     <!-- Remove fade from class to make close and X buttons to work properly  -->
+     <div id="ReservationModal" class="modal" tabindex="-1" role="dialog">
+          <div class="model-dialog modal-lg" role="content">
+               <div class="modal-content">
+                    <div class="modal-header">
+                         <h4 class="modal-title" id="myModalLabel1">Reserve a Table</h4>
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                         </button>
+                    </div>
+
+                    <div class="modal-body">
+                         <form>
+                              <div class="form-group row">
+                                   <label for="Number of Guests" class="col-12 col-md-2 col-form-label">Number of
+                                        Guests</label>
+                                   <div class="col-12 col-md-10">
+                                        <div class="radio">
+                                             <label class="radio-inline"><input type="radio" name="optradio" checked> 1
+                                             </label>
+                                             <label class="radio-inline"><input type="radio" name="optradio"> 2
+                                             </label>
+                                             <label class="radio-inline"><input type="radio" name="optradio"> 3
+                                             </label>
+                                             <label class="radio-inline"><input type="radio" name="optradio"> 4
+                                             </label>
+                                             <label class="radio-inline"><input type="radio" name="optradio"> 5
+                                             </label>
+                                             <label class="radio-inline"><input type="radio" name="optradio"> 6
+                                             </label>
+                                        </div>
+                                   </div>
+                              </div>
+
+                              <div class="form-group row">
+                                   <label for="Section" class="col-12 col-md-2 col-form-label">Section</label>
+                                   <div class="col-12 col-md-10">
+                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                             <label class="btn btn-secondary btn-success active">
+                                                  <input type="radio" name="option1" id="option1" autocomplete="off" checked> Non-Smoking
+                                             </label>
+                                             <label class="btn btn-secondary btn-danger">
+                                                  <input type="radio" name="option2" id="option2" autocomplete="off">Smoking
+                                             </label>
+                                        </div>
+                                   </div>
+                              </div>
+
+                              <div class="form-group row">
+                                   <label for="Date and Time" class="col-12 col-md-2 col-form-label">Date and
+                                        Time</label>
+                                   <div class="col-md-5">
+                                        <input type="text" class="form-control" id="date" name="date"
+                                             placeholder="Date">
+                                   </div>
+                                   <div class="col-md-5">
+                                        <input type="text" class="form-control" id="time" name="time"
+                                             placeholder="Time">
+                                   </div>
+                              </div>
+
+                         </form>
+                    </div>
+
+                    <div class="modal-footer">
+                         <div class="offset-md-2 col-md-10">
+                              <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancel</button>
+                             <button type="submit" class="btn btn-primary btn-sm">Reserve</button>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+
      <!-- Modal - usecase login into website -->
-     <div id="loginModal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+     <div id="loginModal" class="modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="model-dialog modal-lg">
                <!-- Modal Content -->
                <div class="modal-content">
@@ -97,6 +171,8 @@
           </div>
      </div>
 
+
+
      <header class="jumbotron">
           <div class="container">
                <!-- give 12 cols for extra small size device and 6 small columns for small-extralarge devices -->
@@ -113,12 +189,16 @@
                     </div>
                     <!-- clicking on this button takes to Reservation form -->
                     <div class="col-12 col-sm-3 align-self-center">
-                         <!-- toolip on sthis button, using data-toggle(js component)
+                         <!-- toolip on this button, using data-toggle(js component)
                          data-placement means when clicked display on booton of button
-                         tooltip needs to be activated using javascript code written at bottom -->
+                         tooltip needs to be activated using javascript code written at bottom 
                          <a role="button" class="btn btn-warning btn-block btn-sm" data-toggle="tooltip"
                               data-html="true" title="Or Call us at <br><strong>+911 12345678</strong>"
                               data-placement="bottom" href="#reserveform">Reserve Table</a>
+                         //-->
+                         <!-- Convert tooltip toggle button to invoke modal -->
+                         <a role="button" class="btn btn-warning btn-block btn-sm" data-toggle="modal"
+                              data-target="#ReservationModal">ReserveTable</a>
                     </div>
                </div>
           </div>
@@ -135,8 +215,11 @@
                               <div class="carousel-item active">
                                    <img class="d-block img-fluid" src="img/uthappizza.png" alt="Uthappizza">
                                    <div class="carousel-caption d-none d-md-block">
-                                        <h2>Uthappizza <span class="badge badge-danger">HOT</span><span class="badge badge-pill badge-secondary">$4.99</span></h2>
-                                        <p class="d-none d-sm-block">A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.</p>
+                                        <h2>Uthappizza <span class="badge badge-danger">HOT</span><span
+                                                  class="badge badge-pill badge-secondary">$4.99</span></h2>
+                                        <p class="d-none d-sm-block">A unique combination of Indian Uthappam (pancake)
+                                             and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes,
+                                             Vidalia onion, Guntur chillies and Buffalo Paneer.</p>
                                    </div>
                               </div>
 
@@ -144,7 +227,10 @@
                                    <img class="d-block img-fluid" src="img/buffet.png" alt="Weekend Grand Buffet">
                                    <div class="carousel-caption d-none d-md-block">
                                         <h2>Weekend Grand Buffet <span class="badge badge-danger">NEW</span></h2>
-                                        <p class="d-none d-sm-block">Featuring mouthwatering combinations with a choice of five differentsalads, six enticing appetizers, six main entrees and five choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99 per person </p>
+                                        <p class="d-none d-sm-block">Featuring mouthwatering combinations with a choice
+                                             of five differentsalads, six enticing appetizers, six main entrees and five
+                                             choicest desserts. Free flowing bubbly and soft drinks. All for just $19.99
+                                             per person </p>
                                    </div>
                               </div>
 
@@ -153,7 +239,10 @@
                                    <div class="carousel-caption d-none d-md-block">
                                         <h2>Alberto Somayya</h2>
                                         <h4>Executive Chef</h4>
-                                        <p class="d-none d-sm-block">Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. </p>
+                                        <p class="d-none d-sm-block">Award winning three-star Michelin chef with wide
+                                             International experience having worked closely with whos-who in the
+                                             culinary world, he specializes in creating mouthwatering Indo-Italian
+                                             fusion experiences. </p>
                                    </div>
                               </div>
 
@@ -169,6 +258,16 @@
                               <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
                                    <span class="carousel-control-next-icon"></span>
                               </a>
+
+                              <!-- Buttons to pause/paly carousel itrems -->
+                              <div class="btn-group" id="carouselButton">
+                                   <button class="btn btn-danger btn-sm" id="carousel-pause">
+                                        <span class="fa fa-pause"></span>
+                                   </button>
+                                   <button class="btn btn-danger btn-sm" id="carousel-play">
+                                        <span class="fa fa-play"></span>
+                                   </button>
+                              </div>
                          </div>
                     </div>
                </div>
@@ -238,27 +337,28 @@
           </div>
           //-->
 
+          <!-- Form example on clicking button
           <div class="row row-content">
-               <!-- assign 8 cols for small-extralarge and 12 cols for extra small screens, aligned center -->
+               <!- - assign 8 cols for small-extralarge and 12 cols for extra small screens, aligned center - ->
                <div class="col-12 col-sm-8 offset-md-2 align-self-center">
                     <div class="card">
 
                          <h3 class="card-header bg-warning text-white">Reserve a table</h3>
                          <div class="card-body">
 
-                              <!-- id is required to navigate this form from some other place -->
+                              <!- - id is required to navigate this form from some other place - ->
                               <form id="reserveform">
 
-                                   <!-- Radio buttons arranged side by side in first row of form -->
+                                   <!- - Radio buttons arranged side by side in first row of form - ->
                                    <div class="form-group row">
-                                        <!-- divide this row(of 8 columns) into 2:10 ratio -->
-                                        <!-- left part of row -->
+                                        <!- - divide this row(of 8 columns) into 2:10 ratio - ->
+                                        <!- - left part of row - ->
                                         <label for="Number of Guests" class="col-12 col-md-2 col-form-label">Number of
                                              Guests</label>
-                                        <!-- right part of row -->
+                                        <!- - right part of row - ->
                                         <div class="col-12 col-md-10">
                                              <div class="radio">
-                                                  <!-- by default radio 1 is checked -->
+                                                  <!- - by default radio 1 is checked - ->
                                                   <label class="radio-inline"><input type="radio" name="optradio"
                                                             checked> 1 </label>
                                                   <label class="radio-inline"><input type="radio" name="optradio"> 2
@@ -275,14 +375,14 @@
                                         </div>
                                    </div>
 
-                                   <!-- Date and Time entry in second row of form-->
+                                   <!- - Date and Time entry in second row of form- ->
                                    <div class="form-group row">
-                                        <!-- left part of row -->
+                                        <!- - left part of row - ->
                                         <label for="Date and Time" class="col-12 col-md-2 col-form-label">Date and
                                              Time</label>
-                                        <!-- right part of row, again split into 5:5-->
+                                        <!- - right part of row, again split into 5:5- ->
                                         <div class="col-md-5">
-                                             <!-- placehiolder is what gets displayed inside text area, convenient for user -->
+                                             <!- - placehiolder is what gets displayed inside text area, convenient for user - ->
                                              <input type="text" class="form-control" id="date" name="date"
                                                   placeholder="Date">
                                         </div>
@@ -292,7 +392,7 @@
                                         </div>
                                    </div>
 
-                                   <!-- Reserve button on third row of form -->
+                                   <!- - Reserve button on third row of form - ->
                                    <div class="form-group row">
                                         <div class="offset-md-2 col-md-10">
                                              <button type="Reserve" class="btn btn-primary">Reserve</button>
@@ -303,7 +403,7 @@
                     </div>
                </div>
           </div>
-
+          //-->
      </div>
 
      <footer class="footer">
@@ -359,16 +459,37 @@
      <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
      <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
      <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+     <!-- 
      <script>
           $(document).ready(function () {
                $('[data-toggle="tooltip"]').tooltip();
           });
      </script>
-
+     //-->
      <!-- helpled in closing and cancel in modal page 
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+     
+     <script>
+          $('.modal-dialog').on('click tap', function(e){
+               if ($(e.target).hasClass('modal-dialog')) {
+                    $('.modal').modal('hide');
+               }
+          })
+     </script>
      //-->
+     <!-- slide carousel every 1000 ms -->
+     <script>
+          $(document).ready(function(){
+               $('#mycarousel').carousel({interval:1000});
+               $('#carousel-pause').click(function(){
+                    $('#mycarousel').carousel('pause');
+               });
+               $('#carousel-play').click(function(){
+                    $('#mycarousel').carousel('cycle');
+               });
+          });
+     </script>
 </body>
 
 </html>
